@@ -76,7 +76,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: CORS_POLICY,
                       corsPolicyBuilder =>
                       {
-                          corsPolicyBuilder.WithOrigins(baseUrlConfig.WebBase.Replace("host.docker.internal", "localhost").TrimEnd('/'));
+                          corsPolicyBuilder.WithOrigins("https://eshopwebappeurope.azurewebsites.net")
+                              .WithOrigins("https://eshopwebappus.azurewebsites.net")
+                              .WithOrigins("https://eshopwebappeurope-staging.azurewebsites.net")
+                              .WithOrigins("https://eshop.trafficmanager.net");
                           corsPolicyBuilder.AllowAnyMethod();
                           corsPolicyBuilder.AllowAnyHeader();
                       });
